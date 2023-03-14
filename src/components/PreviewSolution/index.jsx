@@ -23,14 +23,13 @@ const PreviewSolution = () => {
 
   return (
     <CodeEditor
-      className='lg:w-[550px] md:min-w-[550px] sm:min-w-[200px]'
+      className='lg:min-h-[350px] lg:min-w-[550px] md:min-w-[550px] sm:min-w-[200px]'
       value={
         !SolutionExercise.generatingSolution
           ? SolutionExercise.solution
           : 'Generando solucion...'
       }
       language={SolutionExercise.language}
-      minHeight={200}
       padding={15}
       disabled={SolutionExercise.generatingSolution}
       style={{
