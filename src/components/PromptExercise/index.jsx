@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { config } from '../../config'
 import { resolveExercise } from '../../services/resolveExercise'
 import { useExerciseStore } from '../../stores/Exercise'
 
@@ -60,7 +61,11 @@ const PromptExercise = () => {
         name='language'
         onChange={onChange}
       >
-        <option value='javascript'>Javascript</option>
+        {config.languages.map((language) => (
+          <option key={language.slug} value={language.slug}>
+            {language.name}
+          </option>
+        ))}
       </select>
       <button className='p-2 bg-blue-600 rounded-full text-white'>
         Generar solucion del ejercicio

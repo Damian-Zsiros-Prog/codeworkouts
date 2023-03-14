@@ -12,5 +12,35 @@ export const config = {
       content:
         "let num1 = Number(prompt('Dame un numero'))\nlet num2 = Number(prompt('Dame un numero'))\n console.log(num1+num2)"
     }
+  ],
+  languages: [
+    {
+      slug: 'javascript',
+      name: 'Javascript'
+    },
+    {
+      slug: 'typescript',
+      name: 'Typescript'
+    },
+    {
+      slug: 'java',
+      name: 'Java'
+    },
+    {
+      slug: 'cpp',
+      name: 'C++'
+    },
+    {
+      slug: 'python',
+      name: 'Python'
+    },
+    {
+      slug: 'c',
+      name: 'C'
+    },
+    {
+      slug: 'go',
+      name: 'Go'
+    }
   ]
 }
