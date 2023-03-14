@@ -31,7 +31,7 @@ const PreviewSolution = () => {
       }
       language={SolutionExercise.language}
       padding={15}
-      disabled={SolutionExercise.generatingSolution}
+      disabled={SolutionExercise.generatingSolution || SolutionExercise.solution === ""}
       style={{
         fontSize: 12,
         backgroundColor: '#f5f5f5',
