@@ -12,7 +12,7 @@ const Footer = () => {
             </a>
             . All Rights Reserved.
           </span>
-          <ul className='text-center flex sm:justify-center flex-wrap items-center mt-3 text-sm text-white dark:text-gray-500 sm:mt-0'>
+          <ul className='text-center flex justify-center flex-wrap items-center mt-3 text-sm text-white dark:text-gray-500 sm:mt-0'>
             <li>
               <a
                 href='https://github.com/Damian-Zsiros-Prog'
