@@ -1,5 +1,5 @@
 export const config = {
-  OPEN_API_KEY: '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',
+  OPEN_API_KEY: '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',
   CHATGPT_API_COMPLETIONS_URL: 'https://api.openai.com/v1/chat/completions',
   MESSAGES_INIT: [
     {
@@ -31,6 +31,10 @@ export const config = {
       name: 'C++'
     },
     {
+      slug: 'csharp',
+      name: 'C#'
+    },
+    {
       slug: 'python',
       name: 'Python'
     },
@@ -45,6 +49,62 @@ export const config = {
     {
       slug: 'dart',
       name: 'Dart'
+    },
+    {
+      slug: 'kotlin',
+      name: 'Kotlin'
+    },
+    {
+      slug: 'lua',
+      name: 'Lua'
+    },
+    {
+      slug: 'php',
+      name: 'PHP'
+    },
+    {
+      slug: 'r',
+      name: 'R'
+    },
+    {
+      slug: 'vb',
+      name: 'Visual Basic'
+    },
+    {
+      slug: 'sql',
+      name: 'SQL'
+    },
+    {
+      slug: 'pascal',
+      name: 'Pascal'
+    },
+    {
+      slug: 'scala',
+      name: 'Scala'
+    },
+    {
+      slug: 'html',
+      name: 'HTML'
+    },
+    {
+      slug: 'swift',
+      name: 'Swift'
+    },
+    {
+      slug: 'scss',
+      name: 'SCSS'
+    },
+    {
+      slug: 'rust',
+      name: 'Rust'
+    },
+    {
+      slug: 'xml',
+      name: 'XML'
+    },
+    {
+      slug: 'shell',
+      name: 'Shell'
     }
   ]
 }
