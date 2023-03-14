@@ -4,7 +4,7 @@ import PromptExercise from '../../components/PromptExercise'
 
 const Index = () => {
   return (
-    <section className='md:flex gap-3 justify-center items-center'>
+    <section className='lg:flex gap-3 justify-center items-center'>
       <PromptExercise />
       <PreviewSolution />
     </section>

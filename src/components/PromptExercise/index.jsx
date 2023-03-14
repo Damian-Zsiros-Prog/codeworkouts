@@ -69,6 +69,7 @@ const PromptExercise = () => {
           className='border border-gray-600 p-2 rounded-full'
           name='language'
           onChange={onChange}
+          disabled={Exercise.generatingState}
         >
           {config.languages.map((language) => (
             <option key={language.slug} value={language.slug}>
@@ -76,7 +77,10 @@ const PromptExercise = () => {
             </option>
           ))}
         </select>
-        <button className='p-2 bg-blue-600 rounded-full text-white transition hover:bg-blue-700'>
+        <button
+          className='p-2 bg-blue-600 rounded-full text-white transition hover:bg-blue-700'
+          disabled={Exercise.generatingState}
+        >
           Generar solucion del ejercicio
         </button>
         {!Exercise.generatingState && Exercise.solution !== '' && (

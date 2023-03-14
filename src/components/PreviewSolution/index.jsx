@@ -23,6 +23,7 @@ const PreviewSolution = () => {
 
   return (
     <CodeEditor
+      className='md:w-full'
       value={
         !SolutionExercise.generatingSolution
           ? SolutionExercise.solution
@@ -31,13 +32,16 @@ const PreviewSolution = () => {
       language={SolutionExercise.language}
       minHeight={200}
       padding={15}
+      disabled={SolutionExercise.generatingSolution}
       style={{
         fontSize: 12,
         backgroundColor: '#f5f5f5',
         fontFamily:
           'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
         minWidth: 500,
-        maxWidth: 600
+        maxWidth: 750,
+        maxHeight: 350,
+        overflow: 'scroll'
       }}
     />
   )

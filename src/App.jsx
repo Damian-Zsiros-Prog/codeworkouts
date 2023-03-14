@@ -8,15 +8,15 @@ import PreviewSolutionPage from './pages/PreviewSolutionPage'
 const App = () => {
   return (
     <>
-      <main className='p-4'>
-        <BrowserRouter>
-          <Header />
+      <BrowserRouter>
+        <Header />
+        <main className='p-4'>
           <Routes>
             <Route path='/' element={<Index />} />
             <Route path='/preview-solution' element={<PreviewSolutionPage />} />
           </Routes>
-        </BrowserRouter>
-      </main>
+        </main>
+      </BrowserRouter>
       <Footer />
     </>
   )
