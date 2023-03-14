@@ -1,5 +1,5 @@
 export const config = {
-  OPEN_API_KEY: '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',
+  OPEN_API_KEY: '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',
   CHATGPT_API_COMPLETIONS_URL: 'https://api.openai.com/v1/chat/completions',
   MESSAGES_INIT: [
     {
@@ -41,6 +41,10 @@ export const config = {
     {
       slug: 'go',
       name: 'Go'
+    },
+    {
+      slug: 'dart',
+      name: 'Dart'
     }
   ]
 }
