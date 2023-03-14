@@ -5,12 +5,9 @@ export const useExerciseStore = create((set) => ({
   language: 'javascript',
   solution: '',
   generatingSolution: false,
-  updatePrompt: (newPrompt) =>
-    set((state) => ({ ...state, prompt: newPrompt })),
-  updateLanguage: (newLanguage) =>
-    set((state) => ({ ...state, language: newLanguage })),
+  updatePrompt: (newPrompt) => set((state) => ({ prompt: newPrompt })),
+  updateLanguage: (newLanguage) => set((state) => ({ language: newLanguage })),
   updateStateGenerating: (newState) =>
-    set((state) => ({ ...state, generatingSolution: newState })),
-  updateSolution: (newSolution) =>
-    set((state) => ({ ...state, solution: newSolution }))
+    set((state) => ({ generatingSolution: newState })),
+  updateSolution: (newSolution) => set((state) => ({ solution: newSolution }))
 }))

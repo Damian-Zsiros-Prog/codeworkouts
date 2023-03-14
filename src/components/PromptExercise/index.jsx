@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { config } from '../../config'
 import { resolveExercise } from '../../services/resolveExercise'
 import { useExerciseStore } from '../../stores/Exercise'
-
+import { Link } from 'react-router-dom'
 const PromptExercise = () => {
   const [Exercise, setExercise] = useState({
     prompt: '',
@@ -27,50 +27,68 @@ const PromptExercise = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault()
-
+    updateSolution('')
+    setExercise({
+      ...Exercise,
+      solution: ''
+    })
+    updatePrompt(Exercise.prompt)
+    updateLanguage(Exercise.language)
+    updateStateGenerating(true)
     setExercise({
       ...Exercise,
       generatingState: true
     })
-    updatePrompt(Exercise.prompt)
-    updateLanguage(Exercise.language)
-    updateStateGenerating(Exercise.generatingState)
     const { response } = await resolveExercise({
       prompt: Exercise.prompt,
       language: Exercise.language
     })
+    updateSolution(response)
+    updateStateGenerating(false)
     setExercise({
       ...Exercise,
-      solution: response,
-      generatingState: false
+      generatingState: false,
+      solution: response
     })
-    updateSolution(Exercise.solution)
-    updateStateGenerating(Exercise.generatingState)
   }
   return (
-    <form method='POST' className='flex flex-col gap-3 p-4' onSubmit={onSubmit}>
-      <textarea
-        name='prompt'
-        rows={10}
-        cols={50}
-        onChange={onChange}
-        className='border border-gray-500 rounded-xl p-2 outline-none'
-      />
-      <select
-        className='border border-gray-600 p-2 rounded-full'
-        name='language'
-        onChange={onChange}
+    <section className=''>
+      <form
+        method='POST'
+        className='flex flex-col gap-3 p-4'
+        onSubmit={onSubmit}
       >
-        {config.languages.map((language) => (
-          <option key={language.slug} value={language.slug}>
-            {language.name}
-          </option>
-        ))}
-      </select>
-      <button className='p-2 bg-blue-600 rounded-full text-white'>
-        Generar solucion del ejercicio
-      </button>
-    </form>
+        <textarea
+          name='prompt'
+          rows={10}
+          cols={50}
+          onChange={onChange}
+          className='border border-gray-500 rounded-xl p-2 outline-none'
+        />
+        <select
+          className='border border-gray-600 p-2 rounded-full'
+          name='language'
+          onChange={onChange}
+        >
+          {config.languages.map((language) => (
+            <option key={language.slug} value={language.slug}>
+              {language.name}
+            </option>
+          ))}
+        </select>
+        <button className='p-2 bg-blue-600 rounded-full text-white transition hover:bg-blue-700'>
+          Generar solucion del ejercicio
+        </button>
+        {!Exercise.generatingState && Exercise.solution !== '' && (
+          <Link
+            className="text-center p-2 className='p-2 bg-blue-600 rounded-full text-white transition hover:bg-blue-700'"
+            to='/preview-solution'
+          >
+            Mostrar solucion en grande
+          </Link>
+        )}
+      </form>
+    </section>
   )
 }
 
