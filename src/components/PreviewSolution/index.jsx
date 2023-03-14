@@ -1,4 +1,5 @@
 import CodeEditor from '@uiw/react-textarea-code-editor'
+import { useState, useEffect } from 'react'
 import { useExerciseStore } from '../../stores/Exercise'
 
 const PreviewSolution = () => {
@@ -7,14 +8,31 @@ const PreviewSolution = () => {
   const generatingSolution = useExerciseStore(
     (state) => state.generatingSolution
   )
+  const [SolutionExercise, setSolutionExercise] = useState({
+    solution,
+    language,
+    generatingSolution
+  })
+  useEffect(() => {
+    setSolutionExercise({
+      solution,
+      language,
+      generatingSolution
+    })
+  }, [solution, language, generatingSolution])
+
   return (
     <CodeEditor
       className='w-lg min-h-lg max-h-xl'
-      value={solution}
-      language={language}
+      value={
+        !SolutionExercise.generatingSolution
+          ? SolutionExercise.solution
+          : 'Generando solucion...'
+      }
+      language={SolutionExercise.language}
       minHeight={200}
       placeholder={
-        generatingSolution
+        SolutionExercise.generatingSolution
           ? 'Generando solucion...'
           : 'Aqui estara tu solucion.'
       }
