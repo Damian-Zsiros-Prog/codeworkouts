@@ -1,5 +1,5 @@
 export const config = {
-  OPEN_API_KEY: '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',
+  OPEN_API_KEY: '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',
   CHATGPT_API_COMPLETIONS_URL: 'https://api.openai.com/v1/chat/completions',
   MESSAGES_INIT: [
     {
