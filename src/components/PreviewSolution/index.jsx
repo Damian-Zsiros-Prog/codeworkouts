@@ -19,11 +19,6 @@ const PreviewSolution = () => {
       language,
       generatingSolution
     })
-    console.log({
-      solution,
-      language,
-      generatingSolution
-    })
   }, [solution, language, generatingSolution])
 
   return (
