@@ -33,22 +33,26 @@ const PromptExercise = () => {
       solution: ''
     })
     updatePrompt(Exercise.prompt)
-    updateLanguage(Exercise.language)
     updateStateGenerating(true)
     setExercise({
       ...Exercise,
       generatingState: true
     })
-    const { response } = await resolveExercise({
+    const { response, error } = await resolveExercise({
       prompt: Exercise.prompt,
       language: Exercise.language
     })
-    updateSolution(response)
-    updateStateGenerating(false)
+    const solutionMessage =
+      error && error.code !== ''
+        ? `Error al solucionar su ejercicio: ${error.message}`
+        : response
+    updateSolution(solutionMessage)
+    updateStateGenerating(error && error.code === '')
+    updateLanguage(error && error.code !== '' ? 'plaintext' : Exercise.language)
     setExercise({
       ...Exercise,
       generatingState: false,
-      solution: response
+      solution: solutionMessage
     })
   }
   return (
@@ -83,7 +87,7 @@ const PromptExercise = () => {
         >
           Generar solucion del ejercicio
         </button>
-        {!Exercise.generatingState && Exercise.solution !== '' && (
+        {!Exercise.generatingState && Exercise.solution.includes('Error:') && (
           <Link
             className="text-center p-2 className='p-2 bg-blue-600 rounded-full text-white transition hover:bg-blue-700'"
             to='/preview-solution'

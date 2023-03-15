@@ -19,6 +19,12 @@ export const resolveExercise = async ({ prompt, language }) => {
     })
   })
   const json = await response.json()
+  if (!response.ok) {
+    return {
+      error: json.error
+    }
+  }
+
   return {
     response: json.choices[0].message.content
   }
