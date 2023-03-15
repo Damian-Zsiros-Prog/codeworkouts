@@ -1,8 +1,8 @@
 import { config } from '../config'
+import { formatPromptExercise } from '../utilities/formatPromptExercise'
 
 export const resolveExercise = async ({ prompt, language }) => {
-  const promptFormatted = `Dame exactamente solo el codigo de la solucion del siguiente ejercicio de programacion en el lenguaje ${language} en base al siguiente texto:
-   ${prompt}`
+  const promptFormatted = formatPromptExercise({ language, prompt })
   const response = await fetch(config.CHATGPT_API_COMPLETIONS_URL, {
     method: 'POST',
     headers: {
