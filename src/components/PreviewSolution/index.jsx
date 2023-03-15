@@ -28,7 +28,7 @@ const PreviewSolution = () => {
 
   return (
     <CodeEditor
-      className='lg:min-h-[350px] max-h-[350px] lg:min-w-[550px] md:min-w-[550px] sm:min-w-[200px]'
+      className='lg:min-h-[350px] lg:max-w-[600px] max-h-[350px] lg:min-w-[550px] md:min-w-[550px] sm:min-w-[200px]'
       value={
         !SolutionExercise.generatingSolution
           ? SolutionExercise.solution
