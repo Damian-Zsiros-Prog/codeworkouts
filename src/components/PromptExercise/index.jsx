@@ -46,8 +46,12 @@ const PromptExercise = () => {
       error && error.code !== ''
         ? `Error al solucionar su ejercicio: ${error.message}`
         : response
+    console.log({
+      response,
+      error
+    })
     updateSolution(solutionMessage)
-    updateStateGenerating(error && error.code === '')
+    updateStateGenerating(error && error.code)
     updateLanguage(error && error.code !== '' ? 'plaintext' : Exercise.language)
     setExercise({
       ...Exercise,
@@ -87,14 +91,15 @@ const PromptExercise = () => {
         >
           Generar solucion del ejercicio
         </button>
-        {!Exercise.generatingState && Exercise.solution.includes('Error:') && (
-          <Link
-            className="text-center p-2 className='p-2 bg-blue-600 rounded-full text-white transition hover:bg-blue-700'"
-            to='/preview-solution'
-          >
-            Mostrar solucion en grande
-          </Link>
-        )}
+        {!Exercise.generatingState &&
+          !Exercise.solution.includes('Error al solucionar su ejercicio:') && (
+            <Link
+              className="text-center p-2 className='p-2 bg-blue-600 rounded-full text-white transition hover:bg-blue-700'"
+              to='/preview-solution'
+            >
+              Mostrar solucion en grande
+            </Link>
+          )}
       </form>
     </section>
   )

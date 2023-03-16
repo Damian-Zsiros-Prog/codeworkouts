@@ -19,6 +19,7 @@ const PreviewSolution = () => {
       language,
       generatingSolution
     })
+    console.log(SolutionExercise)
   }, [solution, language, generatingSolution])
 
   return (
