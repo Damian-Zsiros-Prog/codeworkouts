@@ -6,7 +6,11 @@ export const resolveExercise = async ({ prompt, language }) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${config.OPENAI_API_KEY}`
+      Authorization: `Bearer ${config.OPENAI_API_KEY}`,
+      'Access-Control-Allow-Origin': '*',
+      Connection: 'keep-alive',
+      'Cache-Control': 'no-cache, no-transform',
+      'Content-Encoding': 'none'
     },
     body: JSON.stringify({
       model: 'gpt-3.5-turbo',
