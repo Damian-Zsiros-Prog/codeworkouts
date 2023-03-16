@@ -52,7 +52,7 @@ const PromptExercise = () => {
       solutionMessage
     })
     updateSolution(solutionMessage)
-    updateStateGenerating(error && !error.code)
+    updateStateGenerating(error && !error.code && error.code === '')
     updateLanguage(error && error.code !== '' ? 'plaintext' : Exercise.language)
     setExercise({
       ...Exercise,
