@@ -17,7 +17,7 @@ export const resolveExercise = async ({ prompt, language }) => {
       messages: [
         { role: 'user', content: promptFormatted }
       ],
-      temperature: 0.0
+      temperature: 0.2
     })
   })
   const json = await response.json()
