@@ -1,6 +1,6 @@
 export const config = {
   OPENAI_API_KEY: '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',
-  CHATGPT_API_COMPLETIONS_URL: 'https://api.openai.com/v1/chat/completions',
+  CHATGPT_API_COMPLETIONS_URL: 'https://api.openai.com/v1/completions',
   MESSAGES_INIT: [
     {
       role: 'user',
