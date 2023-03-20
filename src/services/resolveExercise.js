@@ -15,7 +15,6 @@ export const resolveExercise = async ({ prompt, language }) => {
     body: JSON.stringify({
       model: 'gpt-3.5-turbo',
       messages: [
-        ...config.MESSAGES_INIT,
         { role: 'user', content: promptFormatted }
       ],
       temperature: 0.0
