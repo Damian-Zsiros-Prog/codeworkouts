@@ -46,11 +46,7 @@ const PromptExercise = () => {
       error && error.code !== ''
         ? `Error al solucionar su ejercicio: ${error.message}`
         : response
-    console.log({
-      response,
-      error,
-      solutionMessage
-    })
+  
     updateSolution(solutionMessage)
     updateStateGenerating(error && !error.code && error.code === '')
     updateLanguage(error && error.code !== '' ? 'plaintext' : Exercise.language)
